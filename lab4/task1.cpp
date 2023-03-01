@@ -16,14 +16,14 @@ struct Func
     int operator()(int x) const
     {
         if(!(x & (x - 1)))
-            return x * x;
+            return x * _k;
         return x;
     }
 };
 
 int main()
 {
-    std::list<int> l = {1, 4, 2, 0, 16, 3, 2};
+    std::list<int> l = {1, 4, 2, 0, 16, 3, 2, 7};
     std::function<int(int)> f = Func(3);
     std::transform(l.cbegin(), l.cend(), l.begin(), f);
 
@@ -34,6 +34,3 @@ int main()
 
     return 0;
 }
-
-
-
